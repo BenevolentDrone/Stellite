@@ -6,11 +6,25 @@ project(Stellite VERSION 0.1.0)
 #include(CTest)
 #enable_testing()
 
+# Include dependencies
+
 # Following this tutorial
 # https://trenki2.github.io/blog/2017/06/02/using-sdl2-with-cmake/
 # the following two commands will automatically find and include the SDL2 into project
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
+#message(STATUS "SDL2 included at ${SDL2_INCLUDE_DIRS}")
+
+# Following this tutorial
+# https://shot511.github.io/2018-05-29-how-to-setup-opengl-project-with-cmake/
+# Then this
+# https://github.com/arrayfire/forge/issues/49
+# GLM
+FIND_PACKAGE(glm REQUIRED)
+include_directories(${GLM_INCLUDE_DIRS})
+#message(STATUS "GLM included at ${GLM_INCLUDE_DIRS}")
+
+# List all cpp and h files
 
 # Initialize an empty source file list into the global property
 # Scope: global
@@ -21,7 +35,6 @@ set_property(
 
 # Following this tutorial
 # https://www.youtube.com/watch?v=SYgESCQeGJY&list=PLK6MXr8gasrGmIiSuVQXpfFuE1uPT615s&index=8
-add_subdirectory(include/glm)
 add_subdirectory(src)
 
 # Get the source file list after all subdirectories added their sources to it
@@ -42,6 +55,4 @@ add_executable(Stellite ${SOURCE_FILES})
 
 # This one makes sure that CMakeLists specified with add_subdirectory lines propagate the include libraries to respective .h and .cpp files
 target_link_libraries(Stellite SDL2)
-
-#In case we need to know where the SDL2 lives
-#message( ${SDL2_INCLUDE_DIRS} )
+#target_link_libraries(Stellite glm)
