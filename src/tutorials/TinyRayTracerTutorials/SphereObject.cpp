@@ -8,12 +8,12 @@ namespace TinyRayTracerTutorials
         : sphere(sphere), material(material) 
     {}
 
-    Sphere SphereObject::GetSphere()
+    Sphere SphereObject::GetSphere() const
     {
         return sphere;
     }
     
-    Material SphereObject::GetMaterial()
+    Material SphereObject::GetMaterial() const
     {
         return material;
     }

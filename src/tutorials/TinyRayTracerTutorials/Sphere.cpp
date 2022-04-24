@@ -9,12 +9,12 @@ namespace TinyRayTracerTutorials
         : center(center), radius(radius) 
     {}
 
-    Vector3 Sphere::GetCenter()
+    Vector3 Sphere::GetCenter() const
     {
         return center;
     }
     
-    float Sphere::GetRadius()
+    float Sphere::GetRadius() const
     {
         return radius;
     }

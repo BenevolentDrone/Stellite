@@ -10,7 +10,7 @@ namespace TinyRayTracerTutorials
         : diffuseColor()
     {}
     
-    Color Material::GetDiffuseColor()
+    Color Material::GetDiffuseColor() const
     {
         return diffuseColor;
     }

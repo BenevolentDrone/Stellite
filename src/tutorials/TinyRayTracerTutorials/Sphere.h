@@ -1,6 +1,8 @@
+#include "Aliases.h"
 #include <glm/vec3.hpp>
 
-using Vector3 = glm::vec3;
+#ifndef SPHERE
+#define SPHERE
 
 namespace TinyRayTracerTutorials
 {
@@ -16,8 +18,8 @@ namespace TinyRayTracerTutorials
                 const float& radius);
 
             //C++ plebs have no properties so we'll just make get/set methods instead
-            Vector3 GetCenter();
-            float GetRadius();
+            Vector3 GetCenter() const;
+            float GetRadius() const;
 
             //First two arguments are not expected to be changed during the method execution, that's why they're marked as const
             
@@ -39,3 +41,5 @@ namespace TinyRayTracerTutorials
                 float& distanceToSphere) const;
     };
 }
+
+#endif

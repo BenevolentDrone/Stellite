@@ -1,11 +1,16 @@
+#include "Aliases.h"
 #include <glm/vec3.hpp>
 
-using Color = glm::vec3;
+#ifndef MATERIAL
+#define MATERIAL
 
 namespace TinyRayTracerTutorials
 {
     struct Material 
     {
+        //Honestly, the only things from C++ that I'd be glad to have in C# atm are those 'private:', 'public:' and 'protected:' labels
+        //They're cool
+        
         private:
             Color diffuseColor;
         
@@ -38,9 +43,11 @@ namespace TinyRayTracerTutorials
             //(https://stackoverflow.com/questions/467815/class-method-and-variable-with-same-name-compile-error-in-c-not-in-java),
             //C++ is OK with methods having the same name as return value types... only if you don't use said types as constructor arguments.
             //Once again, it rolls with it in .h files but starts freaking out in .cpp files. This time however it still allows for, say,
-            //'Sphere SphereObject::Sphere'. The easiest path you can take to ensure thiis psycho leaves you alone with the multiverse
-            //of its stupid syntax is to name getters and setters explicitly GetBlaBla SetBlaBla
+            //'Sphere SphereObject::Sphere'. The easiest path you can take to ensure this psycho language leaves you alone with the multiverse
+            //of its stupid syntax is to name getters and setters explicitly like GetBlaBla or SetBlaBla
             
-            Color GetDiffuseColor();
+            Color GetDiffuseColor() const;
     };
 }
+
+#endif
